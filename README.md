@@ -77,3 +77,25 @@ re.match(r'^\d{3}\-\d{3,8}$', '010-12345')
 re.split(r'\s+','a b  c')
 re.split(r'[\s\,]+','a b,c  d')
 re.split(r'[\s\,\:]+','a,b  c :d')
+
+#re
+import re
+def is_valid_email(addr):
+    n=re.match(r'^[0-9a-zA-Z.]+\@(\w+).(\w+)',addr)
+    if n:
+        print('ok')
+        return True
+    else:
+        print('error')
+        return False
+        
+def name_of_email(addr):
+    n1=re.match(r'(\<.*\>)\s\w+\@(\w+)\.(\w+)$',addr)
+    n2=re.match(r'^(\w+)\@(\w+)\.(\w+)$',addr)
+    if n1:
+        return n1.group(1)[1:-1]
+    elif n2:
+        return n2.group(1)
+    else:
+        return False
+        
